@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <style type="text/css">
+    fieldset{
+    border:1px solid black;
+    }
+
+    </style>
+    <title>Book form</title>
+  </head>
+  <body>
+      <fieldset>
+        <legend>Customer Info</legend>
+        <form autocomplete="on">
+        Name: <input type="text" name="cusname" placeholder="Enter your name" autofocus required><br>
+        Telephone:<input type="tel" name="telephone" placeholder="Pattern 234-567-8910"  pattern="\A[0-9]{3}-[0-9]{3}-[0-9]{4}\z" required><br>
+        Email address:<input type="email" placeholder="Enter your email address" multiple required><br>
+      </fieldset>
+
+    <br>
+    <fieldset>
+      <legend>Books</legend>
+
+
+      Books:<input list="books" name="book">
+        <datalist id="books">
+          <option value="HTML5 - Bruce Lawson and Remy Sharp">
+          <option value="HTML5 - Bruce Lawson and Remy Sharp">
+          <option value="Head First HTML5 Programming - Eric Freeman
+">
+          <option value="Mastering HTML,CSS and JavaScript - Laura Lemay
+">
+        </datalist>
+      Quantity(Maximum 5):<input type="number" min="1" max="5" step="1" name="quantity"><br>
+
+
+  </fieldset>
+  <input type="submit" value="Submit">
+    </form>
+  </body>
+</html>

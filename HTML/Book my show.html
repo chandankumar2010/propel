@@ -1,0 +1,107 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>BOOK A SHOW</title>
+        <style type="text/css">
+            body{
+                background-color: #00CED1;
+            }
+            h1{
+                color:#0000FF;
+                font-family:monospace;
+                text-align:center;
+            }
+            table{
+                color: #8E831F;
+                font-family:monospace;
+                font-weight:bold;
+            }
+            #result{
+                font-weight: bold;
+                color: #0000FF;
+                text-align:center;
+            }
+        </style>
+
+    </head>
+    <body>
+      <script>
+          function calculate(){
+              var adult=document.getElementById("tickets").value;
+              var children=document.getElementById("childrens").value;
+              if(adult<=children){
+                  alert("No of adults should be greater than the no of children");
+
+              }
+              var x=document.getElementById("showdate").value;
+              var enterDate=new Date(x);
+              var currentDate=new Date();
+              if(enterDate<currentDate){
+                  alert("Show date and time should be either current date or future date");
+                  return;
+              }
+              var fare=(adult*200)+(children*100);
+              document.getElementById("result").innerHTML="Your approximate ticket amount is "+fare+" INR";
+          }
+      </script>
+        <h1>BOOK A SHOW - TICKET BOOKING</h1>
+        <form onsubmit="calculate()">
+            <table align="center">
+                <tr>
+                    <td>Name</td>
+                    <td><input type="text" name="name" id="name" pattern="[A-Za-z\s]+" placeholder="Enter the Name" required /></td>
+                </tr>
+                <tr>
+                    <td>Movie Name</td>
+                    <td><input list="movies" name="moviename" id="moviename" placeholder="Movie Name" autocomplete="on" required/>
+
+                        <datalist id="movies" autocomplete="on">
+
+                            <option value="Irada"></option>
+
+                            <option value="Rangoon"></option>
+
+                            <option value="Logan"></option>
+
+                            <option value="Fist Fight"></option>
+
+                        </datalist></td>
+                </tr>
+                <tr>
+                    <td>Circle</td>
+                    <td><input type="text" list="circles" name="circle" id="circle" autocomplete="on" required/>
+                    <datalist id="circles">
+                        <option value="Silver"></option>
+                        <option value="Gold"></option>
+                        <option value="Platinum"></option>
+                    </datalist></td>
+                </tr>
+                <tr>
+                    <td>Phone no</td>
+                    <td><input type="text" name="phone" id="phone" pattern="^[7-9]\d{9}" placeholder="Enter Mobile Number"  required /></td>
+                </tr>
+                <tr>
+                    <td>Show date and time</td>
+                    <td><input type="date" name="showdate" id="showdate"/></td>
+                </tr>
+                <tr>
+                    <td>No of Adults</td>
+                    <td><input type="number" name="tickets" id="tickets" min="1" max="10"/></td>
+                </tr>
+                <tr>
+                    <td>No of childrens</td>
+                    <td><input type="number" name="childrens" id="childrens" min="1" max="5"/></td>
+                </tr>
+                <tr>
+                    <td><input type="submit" name="Book My Show" id="Book My Show" value="Book My Show" /></td>
+                    <td><input type="reset" name="reset" id="reset" value="Reset"/></td>
+                </tr>
+            </table>
+        </form>
+        <div id="result"></div>
+    </body>
+</html>

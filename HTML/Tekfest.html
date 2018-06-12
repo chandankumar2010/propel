@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<style type="text/css">
+body{
+background-color: #C0C0C0;
+}
+h1
+{
+	color: #0000FF;
+  font-family:cursive;
+  text-align:center;
+}
+form
+{
+margin :0 auto;
+width:300px;
+}
+#result
+{
+color:#0000FF;
+font-weight:bold;
+}
+</style>
+
+<title>TEKFEST</title>
+</head>
+<body >
+<script>
+function formSubmit()
+{
+var name=document.getElementById("schoolName").value;
+var count=document.getElementById("childrenCount").value;
+document.getElementById("result").innerHTML ="Welcome " +name+ ". You have registered for " +count+ " students"
+
+return false;
+}
+</script>
+
+<h1>TEKFEST CULTURAL - REGISTRATION</h1>
+<form onsubmit="return formSubmit()" name="myform">
+
+<table>
+<tr>
+<td>School Name</td>
+<td><input type="text" name="schoolName" id="schoolName" required="required"  pattern="[A-Za-z\s]+" > </td>
+</tr>
+
+<tr>
+<td>Address</td>
+<td><textarea rows="5" cols="20"  name="schoolAddress" id="schoolAddress"></textarea></td>
+</tr>
+
+<tr>
+<td>Email ID</td>
+<td><input type="email" name="schoolEmail" id="schoolEmail"></td>
+</tr>
+
+<tr>
+<td>Mobile Number</td>
+<td><input type="text" name="schoolMobileNumber" id="mobileNumber"     placeholder="Enter the Mobile Number" pattern="^[7-9]\d{9}"> </td>
+</tr>
+
+<tr>
+<td>Date of Registration</td>
+<td><input type="date" name="dor" id="dor"> </td>
+</tr>
+
+<tr>
+<td>Cultural Activity</td>
+<td><input type="radio" name="culturalActivity" id="music" value="Music">Music
+<input type="radio" name="culturalActivity" id="dance" value="Dance">Dance</td>
+</tr>
+
+<tr>
+	<td>No of Children</td>
+	<td><input type="number" name="childrenCount" id="childrenCount" required="required" min="5" max="100">
+</tr>
+
+<tr>
+<td>How do you know?</td>
+<td><input name="referenceType" id="referenceType" list="reference">
+		<datalist id="reference">
+  		<option value="Through Friends">
+		<option value="From Website">
+		<option value="Others">
+		</datalist></td>
+</tr>
+
+<tr>
+<td><input type="submit" value="Register Now"  name="submit"> </td>
+<td><input type="reset" name="reset" value="Reset"> </td>
+</tr>
+
+<tr>
+<td colspan="2">
+<div  id="result"></div>
+</td>
+</tr>
+
+</table>
+
+</form>
+</body>
+</html>

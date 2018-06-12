@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <style type="text/css">
+
+      .columns{
+      float: left;
+      width: 33.3%;
+      padding: 8px;
+      text-align: center;
+      box-sizing: border-box;
+      }
+      .price:hover {
+       box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
+       }
+
+      .price{
+      list-style-type: none;
+      border: 1px solid #eee;
+      margin: 0;
+      padding: 0;
+      -webkit-transition: 0.3s;
+      transition: 0.3s;
+
+      }
+
+      .button{
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 25px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      }
+      li{
+        background-color: #fff;
+        min-width: 160px;
+        padding: 12px 16px;
+        border-bottom: 1px solid #eee;
+        }
+
+      .header{
+        background-color: #111;
+        color:white;
+        font-size: 25px;
+      }
+      .highlights{
+        background-color: #ebebe0;
+      }
+
+      </style>
+    </head>
+    <body>
+      <h2 style="text-align:center">Pricing Tables</h2>
+      <div class="columns" id="1">
+        <ul class="price">
+            <li class="header">Basic</li>
+            <li class="highlights">$ 9.99/year</li>
+            <li>10GB Stograge</li>
+            <li>10 Emails</li>
+            <li>10 Domains</li>
+            <li>1GB Bandwidth</li>
+            <li class="highlights"><a href="#" class="button">Sign Up</a></li>
+        </ul>
+
+      </div>
+
+      <div class="columns" id="2">
+        <ul class="price"></ul>
+        <ul class="price">
+            <li class="header" style="background-color:#4CAF50">Pro</li>
+            <li class="highlights">$ 24.99/year</li>
+            <li>25GB Stograge</li>
+            <li>25 Emails</li>
+            <li>25 Domains</li>
+            <li>2GB Bandwidth</li>
+            <li class="highlights"><a href="#" class="button">Sign Up</a></li>
+        </ul>
+      </div>
+
+      <div class="columns" id="3">
+        <ul class="price">
+            <li class="header">Premium</li>
+            <li class="highlights">$ 49.99/year</li>
+            <li>50GB Stograge</li>
+            <li>50 Emails</li>
+            <li>50 Domains</li>
+            <li>5GB Bandwidth</li>
+            <li class="highlights"><a href="#" class="button">Sign Up</a></li>
+        </ul>
+      </div>
+    </body>
+</html>

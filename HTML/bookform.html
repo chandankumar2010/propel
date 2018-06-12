@@ -1,0 +1,175 @@
+
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>PIGGY BANK SAVINGS CALCULATOR</title>
+    <style type="text/css" media="all">
+        body{
+            background-color: #F0E68C;
+        }
+        h1{
+            text-align: center;
+            color: #800080;
+            font-family: cursive;
+        }
+        #ratetable{
+            float: right;
+            border-style: solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>PIGGY BANK SAVINGS CALCULATOR</h1>
+    <form>
+        <table>
+            <tr>
+                <td>Customer Name</td>
+                <td><input type="text" name="customerName" id="customername" required pattern="[A-Za-z\s]+"/></td>
+            </tr>
+            <tr>
+                <td>Customer Type</td>
+                <td><input type="radio" name="customerType" id="customerType1" value="0" required/>Normal Citizen</td>
+                <td><input type="radio" name="customerType" id="customerType2" value="1" required/>Senior Citizen</td>
+            </tr>
+            <tr>
+                <td>Address &amp; ID Proof</td>
+                <td><input type="checkbox" name="addressProof" id="addressProof1" value="Aadhar Card" />Aadhar Card</td>
+                <td><input type="checkbox" name="addressProof" id="addressProof2" value="Pan Card" />Pan Card</td>
+                <td><input type="checkbox" name="addressProof" id="addressProof3" value="Driving License" />Driving License</td>
+                <td><input type="checkbox" name="addressProof" id="addressProof4" value="Passport" />Passport</td>
+                <td><input type="checkbox" name="addressProof" id="addressProof5" value="Voter Id" />Voter Id</td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td><input type="text" name="customerMobileNumber" id="customerMobileNumber" pattern="^[7-9]\d{9}" required/></td>
+            </tr>
+            <tr>
+                <td>Type of Savings</td>
+                <td><input type="text" name="savingType" id="savingType" list="savings" required/>
+                <datalist id="savings">
+                    <option value="FD">
+                    <option value="RD">
+                </datalist></td>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <td><input type="number" name="amount" id="amount" placeholder="Enter the Amount" min="500" required/></td>
+            </tr>
+            <tr>
+                <td>Tenure</td>
+                <td><input type="range" name="tenure" id="tenureval" min="1" max="5" value="1" oninput="tenureId.value = tenureval.value" required/>
+                    <output id="tenureId">1</output>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" name="submit" id="submit" value="Calculate Savings" onclick="savings(); return false;"/></td>
+                <td><input type="reset" name="Reset" id="Reset" value="Reset" /></td>
+            </tr>
+        </table>
+    </form>
+    <div id="result"></div>
+    <table id="ratetable">
+        <caption>Interest Rate Chart</caption>
+        <tr>
+            <td>Deposit Type</td>
+            <td>Tenure</td>
+            <td>Interest Rate</td>
+        </tr>
+        <tr>
+            <td rowspan="3" scope="rowgroup">FD</td>
+            <td scope="row">1 to 2 years</td>
+            <td>7</td>
+        </tr>
+        <tr>
+            <td scope="row">Above 2 years to 4 years</td>
+            <td>7.5</td>
+        </tr>
+        <tr>
+            <td scope="row">Above 4 years to 5 years</td>
+            <td>8</td>
+        </tr>
+        <tr>
+            <td rowspan="3" scope="rowgroup">RD</td>
+            <td scope="row">1 to 2 years</td>
+            <td>6.5</td>
+        </tr>
+        <tr>
+            <td scope="row">Above 2 years to 4 years</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td scope="row">Above 4 years to 5 years</td>
+            <td>5.5</td>
+        </tr>
+    </table>
+    <script type="text/javascript" charset="utf-8">
+        function savings(){
+            var amt = document.getElementById('amount').value;
+            var tenure = document.getElementById('tenureval').value;
+            var citizen = document.getElementsByName('customerType');
+            var citVal;
+            if(document.getElementById('customerType1').checked){
+                citVal = document.getElementById('customerType1').value;
+            }
+            else if(document.getElementById('customerType2').checked){
+                citVal = document.getElementById('customerType2').value;
+            }
+            var fd;
+            var type = document.getElementById('savingType').value;
+            if(citVal==0){
+                if(type=="FD"){
+                    if(tenure==1 || tenure==2){
+                        fd = ((amt*tenure*7)/100);
+                    }
+                    else if(tenure==3 || tenure==4){
+                        fd = ((amt*tenure*7.5)/100);
+                    }
+                    else if(tenure==5){
+                        fd = ((amt*tenure*8)/100);
+                    }
+                }
+                else if(type=="RD"){
+                    if(tenure==1 || tenure==2){
+                        fd = ((amt*tenure*6.5)/100);
+                    }
+                    else if(tenure==3 || tenure==4){
+                        fd = ((amt*tenure*6)/100);
+                    }
+                    else if(tenure<=5){
+                        fd = ((amt*tenure*5.5)/100);
+                    }
+                }
+            }
+            else if(citVal==1){
+                if(type=="FD"){
+                    if(tenure==1 || tenure==2){
+                        fd = ((amt*tenure*7.5)/100);
+                    }
+                    else if(tenure==3||tenure==4){
+                        fd = ((amt*tenure*8)/100);
+                    }
+                    else if(tenure==5){
+                        fd = ((amt*tenure*8.5)/100);
+                    }
+                }
+                else if(type=="RD"){
+                    if(tenure==1 || tenure==2){
+                        fd = ((amt*tenure*7)/100);
+                    }
+                    else if(tenure==3 || tenure==4){
+                        fd = ((amt*tenure*6.5)/100);
+                    }
+                    else if(tenure==5){
+                        fd = ((amt*tenure*6)/100);
+                    }
+                }
+            }
+            else{
+                return false;
+            }
+            var sum = parseInt(fd) + parseInt(amt);
+            document.getElementById('result').innerHTML='Total Savings done '+sum;
+        }
+    </script>
+</body>
+</html>
